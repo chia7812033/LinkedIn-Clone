@@ -7,11 +7,12 @@ import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import ChatIcon from "@material-ui/icons/Chat";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import HeaderOption from "./HeaderOption";
-import { useDispatch } from "react-redux";
-import { logout } from "./features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "./features/userSlice";
 
 function Header() {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   const logoutApp = () => {
     dispatch(logout());
@@ -39,7 +40,13 @@ function Header() {
         <HeaderOption Icon={NotificationsIcon} title="Notifications" />
         <HeaderOption
           onClick={logoutApp}
-          avatar="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          avatar={
+            user
+              ? user.photoUrl
+                ? user.photoUrl
+                : user.displayName[0]
+              : "https://static.thenounproject.com/png/5034901-200.png"
+          }
           title="Me"
         />
       </div>

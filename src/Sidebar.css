@@ -1,15 +1,11 @@
 .sidebar {
-  top: 80px;
-  position: sticky;
   flex: 0.2;
   border-radius: 10px;
   text-align: center;
-  height: fit-content;
 }
 
 .sidebar__avatar {
   margin-bottom: 10px;
-
 }
 
 .sidebar__top {
@@ -55,7 +51,6 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
-
 }
 
 .sidebar__stat > p {
@@ -76,6 +71,9 @@
   background-color: white;
   border-radius: 10px;
   margin-top: 10px;
+  top: 80px;
+  position: sticky;
+  height: fit-content;
 }
 
 .sidebar__bottom > p {

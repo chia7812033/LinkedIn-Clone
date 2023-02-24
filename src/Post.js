@@ -1,17 +1,17 @@
-import { Avatar } from '@material-ui/core'
-import React from 'react'
-import InputOption from './InputOption'
-import './Post.css'
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import RepeatIcon from '@material-ui/icons/Repeat';
-import SendIcon from '@material-ui/icons/Send';
+import { Avatar } from "@material-ui/core";
+import React, { forwardRef } from "react";
+import InputOption from "./InputOption";
+import "./Post.css";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import RepeatIcon from "@material-ui/icons/Repeat";
+import SendIcon from "@material-ui/icons/Send";
 
-function Post({ name, description, message, photoUrl }) {
+const Post = forwardRef(({ name, description, message, photoUrl }, ref) => {
   return (
-    <div className='post'>
+    <div ref={ref} className="post">
       <div className="post__header">
-        <Avatar />
+        <Avatar src={photoUrl}>{name[0]}</Avatar>
         <div className="post__info">
           <h2>{name}</h2>
           <p>{description}</p>
@@ -20,18 +20,17 @@ function Post({ name, description, message, photoUrl }) {
 
       <div className="post__body">
         <p>{message}</p>
-        {photoUrl && <img src={photoUrl} alt="photoo" />}
+        {/* {photoUrl && <img src={photoUrl} alt="photoo" />} */}
       </div>
 
       <div className="post__buttons">
         <InputOption Icon={ThumbUpAltIcon} title="Like" />
         <InputOption Icon={ChatBubbleOutlineIcon} title="Comment" />
         <InputOption Icon={RepeatIcon} title="Share" />
-        <InputOption Icon={SendIcon} title="Send"/>
+        <InputOption Icon={SendIcon} title="Send" />
       </div>
-
     </div>
-  )
-}
+  );
+});
 
-export default Post
+export default Post;

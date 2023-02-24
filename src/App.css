@@ -4,4 +4,7 @@
 
 .app__body {
   display: flex;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
